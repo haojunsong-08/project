@@ -1,0 +1,35 @@
+---------------------------------------
+Begin Slurm Prolog: Oct-10-2023 16:08:27
+Job ID:    3754619
+User ID:   hsong343
+Account:   gts-sbrown365
+Job name:  test
+Partition: cpu-medium
+QOS:       inferno
+---------------------------------------
+performing data analysis for niche 4
+model setup done
+starting stratified k fold
+Accuracy for fold 1: 0.7153846153846154
+Accuracy for fold 2: 0.6846153846153846
+Accuracy for fold 3: 0.65
+Accuracy for fold 4: 0.65
+Accuracy for fold 5: 0.6615384615384615
+Accuracy for fold 6: 0.722007722007722
+Accuracy for fold 7: 0.8223938223938224
+Accuracy for fold 8: 0.8301158301158301
+Accuracy for fold 9: 0.8185328185328186
+Accuracy for fold 10: 0.6447876447876448
+---------------------------------------
+Begin Slurm Epilog: Oct-10-2023 22:18:57
+Job ID:        3754619
+Array Job ID:  _4294967294
+User ID:       hsong343
+Account:       gts-sbrown365
+Job name:      test
+Resources:     cpu=24,mem=288G,node=1
+Rsrc Used:     cput=6-04:10:48,vmem=15359772K,walltime=06:10:27,mem=15346744K,energy_used=0
+Partition:     cpu-medium
+QOS:           inferno
+Nodes:         atl1-1-02-002-5-1
+---------------------------------------

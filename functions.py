@@ -40,7 +40,7 @@ def get_bounds(function):
 
 # Refactored create_benchmark function
 def create_benchmark(function):
-    resolution = 1000
+    resolution = 10000
     function_mappings = {
         "Ackley": Ackley,
         "Rastgrin": Rastgrin,

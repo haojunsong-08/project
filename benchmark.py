@@ -11,7 +11,7 @@ def main():
 
     function_list = ["Ackley", "Rastgrin", "Sphere", "Rosenbrock", "Booth", "Easom"]
 
-    with Pool(6) as pool:
+    with Pool(24) as pool:
         for function in tqdm.tqdm(function_list, desc="Benchmarking each function"):
             z, x, y, a, fx = f.create_benchmark(function)
             # paralellize run and get 50 runs of each algorithm and plot the average result  for each iteration from 5 10 15 30 60 100

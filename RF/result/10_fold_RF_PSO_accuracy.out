@@ -1,0 +1,54 @@
+---------------------------------------
+Begin Slurm Prolog: Nov-30-2023 18:05:48
+Job ID:    4266476
+User ID:   hsong343
+Account:   gts-sbrown365
+Job name:  test
+Partition: cpu-medium
+QOS:       inferno
+---------------------------------------
+
+CommandNotFoundError: Your shell has not been properly configured to use 'conda deactivate'.
+To initialize your shell, run
+
+    $ conda init <SHELL_NAME>
+
+Currently supported shells are:
+  - bash
+  - fish
+  - tcsh
+  - xonsh
+  - zsh
+  - powershell
+
+See 'conda init --help' for more information and options.
+
+IMPORTANT: You may need to close and restart your shell after running 'conda init'.
+
+
+performing data analysis for niche 4
+model setup done
+starting stratified k fold
+Accuracy for fold 1: 0.7
+Accuracy for fold 2: 0.676923076923077
+Accuracy for fold 3: 0.6423076923076924
+Accuracy for fold 4: 0.6423076923076924
+Accuracy for fold 5: 0.6346153846153846
+Accuracy for fold 6: 0.7181467181467182
+Accuracy for fold 7: 0.8262548262548263
+Accuracy for fold 8: 0.803088803088803
+Accuracy for fold 9: 0.806949806949807
+Accuracy for fold 10: 0.637065637065637
+---------------------------------------
+Begin Slurm Epilog: Nov-30-2023 20:44:54
+Job ID:        4266476
+Array Job ID:  _4294967294
+User ID:       hsong343
+Account:       gts-sbrown365
+Job name:      test
+Resources:     cpu=24,mem=288G,node=1
+Rsrc Used:     cput=2-15:38:48,vmem=12969684K,walltime=02:39:07,mem=12956868K,energy_used=0
+Partition:     cpu-medium
+QOS:           inferno
+Nodes:         atl1-1-03-003-25-2
+---------------------------------------
