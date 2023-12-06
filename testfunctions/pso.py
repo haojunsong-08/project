@@ -1,6 +1,21 @@
 import numpy as np
 import math
 import matplotlib.pyplot as plt
+import optunity
+def pso_optunity(a, fx, z, x, y, iter):
+    def objective_function(x, y):
+        return fx(x, y)
+     # Define the search space
+    search_space = {'x': [a[0], a[1]], 'y': [a[0], a[1]]}
+
+    # Using PSO to optimize the objective function within the defined search space
+    optimal_pars, details, _ = optunity.minimize(objective_function, 
+                                                 num_evals=iter, 
+                                                 solver_name='particle swarm', 
+                                                 **search_space)
+    return optimal_pars, details
+
+    return gbest_list
 def pso(a, fx, z, x, y, iter):
     # Find the global minimum
     x_min = x.ravel()[z.argmin()]
@@ -29,23 +44,6 @@ def pso(a, fx, z, x, y, iter):
     gbest = pbest[:, pbest_obj.argmin()]
     gbest_obj = pbest_obj.min()
 
-    # Set up base figure: The contour map
-    # fig, ax = plt.subplots(figsize=(8,6))
-    # fig.set_tight_layout(True)
-
-    # img = ax.imshow(z, extent=[a[0],a[1],a[0],a[1]], origin='lower', cmap='viridis', alpha=0.5)
-    # fig.colorbar(img, ax=ax)
-    # ax.plot([x_min], [y_min], marker='x', markersize=50, color="red")
-    # contours = ax.contour(x, y, z, 10, colors='black', alpha=0.4)
-    # ax.clabel(contours, inline=True, fontsize=8, fmt="%.0f")
-    # pbest_plot = ax.scatter(pbest[0], pbest[1], marker='o', color='black', alpha=0.5)
-    # p_plot = ax.scatter(X[0], X[1], marker='o', color='blue', alpha=0.5)
-    # p_arrow = ax.quiver(X[0], X[1], V[0], V[1], color='blue', width=0.005, angles='xy', scale_units='xy', scale=1)
-    # gbest_plot = plt.scatter([gbest[0]], [gbest[1]], marker='*', s=100, color='black', alpha=0.4)
-    # ax.set_xlim([a[0],a[1]])
-    # ax.set_ylim([a[0],a[1]])
-
-
     def apply_boundaries(X, V, lower_bound, upper_bound):
         # Apply boundaries to positions
         np.clip(X, lower_bound, upper_bound, out=X)
@@ -71,31 +69,8 @@ def pso(a, fx, z, x, y, iter):
         gbest_list.append(gbest_obj)
         return V, X, pbest, pbest_obj, gbest, gbest_obj
 
-    # def animate(i):
-    #     "Steps of PSO: algorithm update and show in plot"
-    #     title = 'Iteration {:02d}'.format(i)
-    #     # Update params
-    #     update()
-    #     apply_boundaries(X, V, a[0], a[1])
-    #     # Set picture
-    #     ax.set_title(title)
-    #     pbest_plot.set_offsets(pbest.T)
-    #     p_plot.set_offsets(X.T)
-    #     p_arrow.set_offsets(X.T)
-    #     p_arrow.set_UVC(V[0], V[1])
-    #     gbest_plot.set_offsets(gbest.reshape(1,-1))
-    #     return ax, pbest_plot, p_plot, p_arrow, gbest_plot
-
-
-    # Set iteration of update function and frame interval
-
     iteration = list(range(1,iter))
     for _ in iteration:
         V, X, pbest, pbest_obj, gbest, gbest_obj = update(V, X, pbest, pbest_obj, gbest, gbest_obj)
         apply_boundaries(X, V, a[0], a[1])
-    # from matplotlib.animation import FuncAnimation
-    # anim = FuncAnimation(fig, animate, frames=iteration, interval=100, blit=False, repeat=False)
-    # anim
-    # from IPython.display import HTML
-    # HTML(anim.to_html5_video())
     return gbest_list

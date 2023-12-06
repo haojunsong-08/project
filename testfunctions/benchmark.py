@@ -1,5 +1,5 @@
 import functions as f
-import pso
+import svm_pso.pso as pso
 import bo 
 import numpy as np
 import math
